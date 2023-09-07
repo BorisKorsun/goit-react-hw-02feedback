@@ -1,5 +1,8 @@
 import React, { Component } from 'react';
 
+import Section from 'components/Section';
+import FeedbackControls from 'components/FeedbackOptions';
+
 class App extends Component {
   state = {
     good: 0,
@@ -8,7 +11,11 @@ class App extends Component {
   };
 
   render() {
-    return <></>;
+    return (
+      <Section title="Please leave feedback">
+        <FeedbackControls config={['good', 'neutral', 'bad']}/>
+      </Section>
+    );
   }
 }
 
