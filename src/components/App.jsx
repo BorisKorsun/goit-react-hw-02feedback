@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 
 import Section from 'components/Section';
-import FeedbackControls from 'components/FeedbackOptions';
+import FeedbackControls from 'components/FeedbackControls';
 
 class App extends Component {
   state = {
@@ -10,10 +10,21 @@ class App extends Component {
     bad: 0,
   };
 
+  handleBtnClick = e => {
+    const { name } = e.target;
+
+    this.setState(prev => {
+      return { [name]: prev[name] + 1 };
+    });
+  };
+
   render() {
     return (
       <Section title="Please leave feedback">
-        <FeedbackControls config={['good', 'neutral', 'bad']}/>
+        <FeedbackControls
+          onButtonClick={this.handleBtnClick}
+          config={['good', 'neutral', 'bad']}
+        />
       </Section>
     );
   }
