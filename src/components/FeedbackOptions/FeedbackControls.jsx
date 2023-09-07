@@ -1,10 +1,10 @@
-import React, { Component } from 'react';
+import capitalizeFLetter from "utils/CapitalizeFirstLetter";
 
 const FeedbackControls = ({ config }) => {
   return (
     <>
       {config.map(button => {
-        return <button key={button} type="button">{button}</button>;
+        return <button key={button} type="button">{capitalizeFLetter(button)}</button>;
       })}
     </>
   );
