@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 
 import Section from 'components/Section';
 import FeedbackControls from 'components/FeedbackControls';
+import Statistics from 'components/Statistics';
 
 class App extends Component {
   state = {
@@ -19,13 +20,19 @@ class App extends Component {
   };
 
   render() {
+    const { good, neutral, bad} = this.state;
     return (
-      <Section title="Please leave feedback">
-        <FeedbackControls
-          onButtonClick={this.handleBtnClick}
-          config={['good', 'neutral', 'bad']}
-        />
-      </Section>
+      <>
+        <Section title="Please leave feedback">
+          <FeedbackControls
+            onButtonClick={this.handleBtnClick}
+            config={['good', 'neutral', 'bad']}
+          />
+        </Section>
+        <Section>
+          <Statistics good={good} neutral={neutral} bad={bad}/>
+        </Section>
+      </>
     );
   }
 }
